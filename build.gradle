@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.multibrowser.lab'
+group = 'com.trabajofinal.selenium'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -10,9 +10,18 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
+    // Selenium
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.23.0'
+    // WebDriverManager
+    testImplementation 'io.github.bonigarcia:webdrivermanager:6.1.0'
+    // JUnit 5 (BOM)
+    testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    // Launcher (correcto, lo puedes dejar)
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // SOLUCIONA warning SLF4J
+    testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+    implementation 'ch.qos.logback:logback-classic:1.5.18'
 }
 
 test {
