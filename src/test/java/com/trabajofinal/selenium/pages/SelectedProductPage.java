@@ -1,5 +1,6 @@
 package com.trabajofinal.selenium.pages;
 
+import com.trabajofinal.selenium.utils.ScreenshotUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,8 +24,10 @@ public class SelectedProductPage {
     public String obtenerTextoAlertAgregarProducto() {
         org.openqa.selenium.Alert alerta = wait.until(ExpectedConditions.alertIsPresent());
         String textAlert = alerta.getText();
+        ScreenshotUtil.takeScreenshot(driver, "testAgregarItems");
         alerta.accept();
         return textAlert;
+
     }
     public int obtenerPrecioProducto() {
         // 1. Esperar a que el contenedor del precio sea visible

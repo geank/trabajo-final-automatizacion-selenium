@@ -47,7 +47,7 @@ public class DriverFactory {
                 return new ChromeDriver(chromeOptions);
 
             case "edge":
-                // se agrega la ruta para la carga
+                // se debe colocar del driver para la descarga
                 System.setProperty("webdriver.edge.driver",
                         "/opt/edgedriver/msedgedriver");
                 EdgeOptions edgeOptions = new EdgeOptions();
