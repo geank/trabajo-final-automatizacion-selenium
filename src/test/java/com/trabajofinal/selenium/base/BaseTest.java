@@ -20,7 +20,7 @@ public class BaseTest {
             boolean headless = Boolean.parseBoolean(System.getProperty("headless",
                     props.getProperty("headless")));
             driver = DriverFactory.createDriver(browser, headless);
-            driver.get(props.getProperty("url"));
+            //driver.get(props.getProperty("url"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

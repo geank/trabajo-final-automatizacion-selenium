@@ -21,6 +21,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     // SOLUCIONA warning SLF4J
     testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+    //logback-test.xml
     implementation 'ch.qos.logback:logback-classic:1.5.18'
 }
 

@@ -28,23 +28,22 @@ public class DriverFactory {
                 prefs.put("profile.default_content_setting_values.notifications", 2);
                 chromeOptions.setExperimentalOption("prefs", prefs);
 
-// Eliminar la barra de "controlado por software de pruebas"
+                // Eliminar la barra de "controlado por software de pruebas"
                 chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 
-// Argumentos CLAVE para eliminar el alert de cambio de contraseña
+                // Argumentos CLAVE para eliminar el alert de cambio de contraseña
                 chromeOptions.addArguments("--disable-features=PasswordLeakDetection,PasswordCheck,PasswordImport,PasswordGeneration,PasswordManagerOnboarding,SavePasswordBubble");
                 chromeOptions.addArguments("--disable-save-password-bubble");
                 chromeOptions.addArguments("--disable-autofill-keyword-accessory-view");
                 chromeOptions.addArguments("--disable-autofill-credit-card-ablation");
 
-// Usar un perfil temporal y limpio (opcional pero muy efectivo)
+                // Usar un perfil temporal y limpio (opcional pero muy efectivo)
                 chromeOptions.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/chrome_selenium_" + System.currentTimeMillis());
-
-                chromeOptions.addArguments("--start-maximized");
 
                 if(headless){
                     chromeOptions.addArguments("--headless=new");
                 }
+                chromeOptions.addArguments("--start-maximized");
                 return new ChromeDriver(chromeOptions);
 
             case "edge":
@@ -52,6 +51,7 @@ public class DriverFactory {
                         "/opt/edgedriver/msedgedriver");
                 EdgeOptions edgeOptions = new EdgeOptions();
 
+                // Desactivar completamente el gestor de contraseñas y detección de fugas
                 java.util.Map<String, Object> edgePrefs = new java.util.HashMap<>();
                 edgePrefs.put("credentials_enable_service", false);
                 edgePrefs.put("profile.password_manager_enabled", false);
@@ -66,12 +66,14 @@ public class DriverFactory {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
+
                 if(headless) {
                     firefoxOptions.addArguments("--headless");
                 }
                 firefoxOptions.addArguments("--width=1920");
                 firefoxOptions.addArguments("--height=1080");
                 return new FirefoxDriver(firefoxOptions);
+
             default:
                 throw new RuntimeException("Navegador no soportado: " + browser);
 

@@ -9,18 +9,19 @@ public class LoginPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
+    //Creaando Localizadores
     private final By txtUsername = By.id("loginusername");
     private final By txtPassword = By.id("loginpassword");
     private final By btnLogin = By.xpath("//button[text()='Log in']");
     private final By btnLogout = By.id("logout2");
 
-
-
+    //Constructor
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
 
+    //Metodos de iteracciones
     public void ingresarUsuario(String usuario) {
         wait.until(ExpectedConditions.elementToBeClickable(By.id("login2"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(txtUsername)).clear();
@@ -34,8 +35,10 @@ public class LoginPage {
 
     public void hacerClicEnLogin() {
         wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
+        //driver.findElement(btnLogin).click();
     }
 
+    //Metodos de Acciones Funcionales
     public void loginCompleto(String usuario, String password) {
         ingresarUsuario(usuario);
         ingresarContrasena(password);
