@@ -1,9 +1,13 @@
 package com.trabajofinal.selenium.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CheckoutPage {
     private final WebDriver driver;
@@ -52,4 +56,14 @@ public class CheckoutPage {
     public void hacerClicEnOkExito() {
         wait.until(ExpectedConditions.elementToBeClickable(btnOkSuccess)).click();
     }
+
+    //Metodo para obtener la alerta
+    public String obtenerTextoAlertNativo() {
+        org.openqa.selenium.Alert alerta = wait.until(ExpectedConditions.alertIsPresent());
+        String textoError = alerta.getText();
+        alerta.accept();
+        return textoError;
+    }
+
+
 }
