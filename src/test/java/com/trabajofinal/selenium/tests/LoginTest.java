@@ -47,14 +47,13 @@ public class LoginTest  extends BaseTest {
 
     @Test
     void testLoginExitoso() {
-        loginPage.loginCompleto("standard_user", "secret_sauce");
+        loginPage.loginCompleto("testcompany", "Pruebastest");
         String textoActual = loginPage.obtenerTextoLogout();
         String textoEsperado = "Log out";
         Assertions.assertEquals(textoEsperado, textoActual,
                 "¡El login falló! El botón de cierre de sesión no muestra el texto correcto.");
         System.out.println("Validación exitosa: Se detectó el botón '" + textoActual + "'.");
-        System.out.println("Prueba 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
-        ScreenshotUtil.takeScreenshot(driver, "testLoginExitoso");
+        System.out.println("Caso 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
 
     }
     @Test
@@ -63,7 +62,7 @@ public class LoginTest  extends BaseTest {
         String errorActual = loginPage.obtenerTextoAlertNativo();
         Assertions.assertEquals("Wrong password.", errorActual, "El mensaje de la ventana emergente no es el correcto.");
         System.out.println("Validación exitosa: Se detectó error '" + errorActual + "'.");
-        System.out.println("Prueba 2 - Login Fallido: ¡PASÓ CORRECTAMENTE!");
+        System.out.println("Caso 2 - Login Fallido: ¡PASÓ CORRECTAMENTE!");
         ScreenshotUtil.takeScreenshot(driver, "testLoginFallido");
 
         //Escribe en el log el resultado
