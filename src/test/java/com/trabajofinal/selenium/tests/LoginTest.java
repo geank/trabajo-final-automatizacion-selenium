@@ -22,16 +22,11 @@ import java.time.Duration;
 import java.util.stream.Stream;
 
 import static java.sql.DriverManager.getDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 public class LoginTest  extends BaseTest {
     private WebDriverWait wait;
     private LoginPage loginPage;
 
-    // Logger
-    private static final Logger logger =  LoggerFactory.getLogger(LoginTest.class);
 
     private static Stream<Arguments> proveerDatosDeLogin() {
         return Stream.of(
@@ -80,9 +75,6 @@ public class LoginTest  extends BaseTest {
         System.out.println("Validación exitosa: Se detectó error '" + errorActual + "'.");
         System.out.println("Caso 2 - Login Fallido: ¡PASÓ CORRECTAMENTE!");
         ScreenshotUtil.takeScreenshot(driver, "testLoginFallido");
-
-        //Escribe en el log el resultado
-        logger.info("INFO: Se detecto error en el login: " + errorActual);
 
     }
 
