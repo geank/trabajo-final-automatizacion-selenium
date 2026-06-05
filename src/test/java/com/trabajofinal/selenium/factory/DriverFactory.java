@@ -47,6 +47,7 @@ public class DriverFactory {
                 return new ChromeDriver(chromeOptions);
 
             case "edge":
+                // se agrega la ruta para la carga
                 System.setProperty("webdriver.edge.driver",
                         "/opt/edgedriver/msedgedriver");
                 EdgeOptions edgeOptions = new EdgeOptions();
@@ -76,6 +77,7 @@ public class DriverFactory {
 
             default:
                 throw new RuntimeException("Navegador no soportado: " + browser);
+
 
         }
 

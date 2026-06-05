@@ -45,10 +45,12 @@ public class LoginPage {
         hacerClicEnLogin();
     }
 
+    //Metodos para obtener el texto del Logout
     public String obtenerTextoLogout() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(btnLogout)).getText();
     }
 
+    //Metodos para obtener la alerta
     public String obtenerTextoAlertNativo() {
         org.openqa.selenium.Alert alerta = wait.until(ExpectedConditions.alertIsPresent());
         String textoError = alerta.getText();

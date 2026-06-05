@@ -38,7 +38,8 @@ public class LoginTest  extends BaseTest {
     }
     @Test
     void testLoginExitoso() {
-
+        //driver.get(props.getProperty("url-1"));
+        //loginPage = new LoginPage(driver, wait);
         loginPage.loginCompleto("standard_user", "secret_sauce");
         String textoActual = loginPage.obtenerTextoLogout();
         String textoEsperado = "Log out";
@@ -49,13 +50,20 @@ public class LoginTest  extends BaseTest {
     }
     @Test
     void testLoginFallido() {
+        //driver.get(props.getProperty("url-1"));
+        //loginPage = new LoginPage(driver, wait);
         loginPage.loginCompleto("usuario_invalido", "clave_falsa");
         String errorActual = loginPage.obtenerTextoAlertNativo();
         Assertions.assertEquals("Wrong password.", errorActual, "El mensaje de la ventana emergente no es el correcto.");
+        System.out.println("Validación exitosa: Se detectó error '" + errorActual + "'.");
+        System.out.println("Prueba 2 - Login Fallido: ¡PASÓ CORRECTAMENTE!");
     }
     @Test
     void testAgregarItems(){
         //login
+        //driver.get(props.getProperty("url-1"));
+        //loginPage = new LoginPage(driver, wait);
+        //productsPage = new ProductsPage(driver,wait);
         loginPage.loginCompleto("standard_user", "secret_sauce");
         String textoActual = loginPage.obtenerTextoLogout();
         String textoEsperado = "Log out";
