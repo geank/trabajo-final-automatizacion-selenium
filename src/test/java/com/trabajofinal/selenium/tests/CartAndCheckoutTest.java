@@ -2,6 +2,7 @@ package com.trabajofinal.selenium.tests;
 
 import com.trabajofinal.selenium.base.BaseTest;
 import com.trabajofinal.selenium.pages.*;
+import com.trabajofinal.selenium.utils.ScreenshotUtil;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -70,7 +71,8 @@ public class CartAndCheckoutTest extends BaseTest {
         // RÚBRICA: Validación de este caso específico
         Assertions.assertTrue(driver.getCurrentUrl().contains("cart.html"),
                 "PASO FALLÓ: No se llegó a la pantalla del carrito.");
-        System.out.println("Caso 3 - Agregar Ítems: ¡PASÓ CORRECTAMENTE!");
+        System.out.println("Caso 4 - Agregar Ítems: ¡PASÓ CORRECTAMENTE!");
+
     }
 
     @Test
@@ -103,7 +105,7 @@ public class CartAndCheckoutTest extends BaseTest {
         // 5. Cerrar el modal con el botón OK
         checkoutPage.hacerClicEnOkExito();
 
-        System.out.println("Caso 4 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
     }
     @Test
     void testCheckoutCompraSinValidacion() {
@@ -132,7 +134,8 @@ public class CartAndCheckoutTest extends BaseTest {
         // 5. Cerrar el modal con el botón OK
         checkoutPage.hacerClicEnOkExito();
 
-        System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        System.out.println("Caso 6 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraSinValidacion");
     }
     @AfterEach
     void cleanup(){

@@ -68,6 +68,7 @@ public class LoginTest  extends BaseTest {
         Assertions.assertEquals(textoEsperado, textoActual,
                 "¡El login falló! El botón de cierre de sesión no muestra el texto correcto.");
         System.out.println("Validación exitosa: Se detectó el botón '" + textoActual + "'.");
+        ScreenshotUtil.takeScreenshot(driver, "testLoginExitoso");
         System.out.println("✅ Caso 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
 
     }
