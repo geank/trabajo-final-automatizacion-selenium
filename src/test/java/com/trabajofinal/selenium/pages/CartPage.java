@@ -6,20 +6,70 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class CartPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
-
-    private final By lblTitulo = By.xpath("//h2[contains(text(),'Products')]");
-    private final By btnCart = By.xpath("//button[text()='Cart']");
+    private final By linksDelete = By.xpath("//a[text()='Delete']");
+    private final By lblTotal = By.id("totalp");
+    private final By btnMenuCart = By.xpath("//a[contains(text(),'Cart')]");
+    private final By btnPlaceOrder = By.xpath("//button[text()='Place Order']");
     public CartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
 
+    public void limpiarCarritoSiTieneElementos() {
+        navegarACarrito();
+
+        // Buscamos si existen botones de "Delete" en la tabla
+        List<WebElement> botonesDelete = driver.findElements(linksDelete);
+
+        while (!botonesDelete.isEmpty()) {
+            System.out.println("🧹 Limpiando residuo de prueba anterior...");
+
+            // Hacemos clic en el primer botón "Delete" disponible
+            wait.until(ExpectedConditions.elementToBeClickable(linksDelete)).click();
+
+            // Esperamos un momento corto a que la fila desaparezca del DOM (asíncrono)
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+            // Volvemos a buscar la lista para ver si quedan más filas
+            botonesDelete = driver.findElements(linksDelete);
+        }
+        System.out.println("✨ El carrito está completamente limpio y listo para el test.");
+    }
     public void navegarACarrito(){
-        WebElement cartLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@onclick='showcart()' and text()='Cart']")));
-        cartLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(btnMenuCart)).click();
+        // Esperamos a que la URL limpie los parámetros y vuelva al index
         wait.until(ExpectedConditions.urlContains("cart.html"));
+    }
+
+    public int  obtenerPrecioTotalCarrito(){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lblTotal));
+        wait.until(driver -> !driver.findElement(lblTotal).getText().trim().isEmpty());
+
+        String textoPrecioTotal = driver.findElement(lblTotal).getText();
+        String soloNumeros = textoPrecioTotal.replaceAll("[^0-9]", "");
+
+        if (soloNumeros.isEmpty()) {
+            System.out.println("⚠️ El string de números quedó vacío, devolviendo 0 de respaldo.");
+            return 0;
+        }
+        // 3. Convertimos el String limpio a un entero
+        int precio = Integer.parseInt(soloNumeros);
+
+        System.out.println("💰 Precio Total capturado y convertido: $" + precio);
+        return precio;
+
+    }
+    public void hacerClicEnPlaceOrder() {
+        wait.until(ExpectedConditions.elementToBeClickable(btnPlaceOrder)).click();
     }
 }

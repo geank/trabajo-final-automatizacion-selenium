@@ -10,7 +10,7 @@ public class SelectedProductPage {
     private final WebDriverWait wait;
 
     private final By btnAgregarAlCarrito = By.xpath("//a[text()='Add to cart']");
-
+    private final By lblPrecio = By.className("price-container");
     public SelectedProductPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -25,6 +25,17 @@ public class SelectedProductPage {
         String textAlert = alerta.getText();
         alerta.accept();
         return textAlert;
+    }
+    public int obtenerPrecioProducto() {
+        // 1. Esperar a que el contenedor del precio sea visible
+        String textoCompleto = wait.until(ExpectedConditions.visibilityOfElementLocated(lblPrecio)).getText();
+
+        // 2. Usamos una expresión regular para eliminar todo lo que NO sea un número
+        String soloNumeros = textoCompleto.replaceAll("[^0-9]", "");
+        // 3. Convertimos el String limpio a un entero
+        int precio = Integer.parseInt(soloNumeros);
+        System.out.println("💰 Precio capturado y convertido: $" + precio);
+        return precio;
     }
 
 

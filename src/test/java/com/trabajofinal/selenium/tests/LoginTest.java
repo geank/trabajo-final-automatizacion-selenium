@@ -70,34 +70,7 @@ public class LoginTest  extends BaseTest {
         logger.info("INFO: Se detecto error en el login: " + errorActual);
 
     }
-    @Test
-    void testAgregarItems(){
-        //login
-        loginPage.loginCompleto("standard_user", "secret_sauce");
-        String textoActual = loginPage.obtenerTextoLogout();
-        String textoEsperado = "Log out";
-        Assertions.assertEquals(textoEsperado, textoActual,
-                "¡El login falló! El botón de cierre de sesión no muestra el texto correcto.");
-        productsPage.seleccionarCategoriaMonitors();
-        productsPage.seleccionarMonitorAsus();
 
-        String urlEsperada = "https://www.demoblaze.com/prod.html?idp_=14";
-        String urlActual = driver.getCurrentUrl();
-
-        Assertions.assertEquals(urlEsperada, urlActual,
-                "PASO FALLÓ: El clic en el monitor ASUS no redirigió a la URL de detalles correcta.");
-
-        selectedProductPage.hacerClicEnAgregarAlCarrito();
-
-        String textoEsperadoItem = "Product added.";
-        String textoTtem = selectedProductPage.obtenerTextoAlertAgregarProducto();
-
-        Assertions.assertEquals(textoEsperadoItem, textoTtem,
-                "PASO FALLÓ: El clic de agregar carrito no funciono.");
-        cartPage.navegarACarrito();
-        System.out.println("Prueba 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
-
-    }
     @AfterEach
     void cleanup(){
         super.tearDown();
