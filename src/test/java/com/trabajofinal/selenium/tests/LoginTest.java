@@ -68,7 +68,7 @@ public class LoginTest  extends BaseTest {
         Assertions.assertEquals(textoEsperado, textoActual,
                 "¡El login falló! El botón de cierre de sesión no muestra el texto correcto.");
         System.out.println("Validación exitosa: Se detectó el botón '" + textoActual + "'.");
-        System.out.println("Caso 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
+        System.out.println("✅ Caso 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
 
     }
     @Test
@@ -100,7 +100,7 @@ public class LoginTest  extends BaseTest {
             String textoActual = loginPage.obtenerTextoLogout();
             Assertions.assertEquals(textoEsperado, textoActual,
                     "PASO FALLÓ: El login exitoso no muestra el botón correcto.");
-            System.out.println("✅ Login Exitoso validado para: " + usuario);
+            System.out.println("✅ Caso 3:  Login Exitoso validado para: " + usuario);
 
         } else {
             // Validación para Login Fallido: Capturar y verificar el texto de la Alerta nativa
@@ -108,7 +108,7 @@ public class LoginTest  extends BaseTest {
 
             Assertions.assertEquals(textoEsperado, mensajeAlertaActual,
                     "PASO FALLÓ: El mensaje de error de la alerta no coincide para el escenario de falla.");
-            System.out.println("✅ Bloqueo de seguridad validado correctamente para: " + usuario);
+            System.out.println("✅ Caso 3: Bloqueo de seguridad validado correctamente para: " + usuario);
         }
     }
 

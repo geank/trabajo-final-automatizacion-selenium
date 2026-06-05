@@ -16,7 +16,7 @@ public class ScreenshotUtil {
         String fecha = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
 
         try {
-            FileUtils.copyFile(src, new File("build/screenshots/" + "Error_" + name + "_" +fecha +".png"));
+            FileUtils.copyFile(src, new File("build/screenshots/" + name + "_" +fecha +".png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

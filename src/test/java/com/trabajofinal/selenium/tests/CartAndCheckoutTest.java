@@ -31,7 +31,7 @@ public class CartAndCheckoutTest extends BaseTest {
 
     private void prepararCarritoConItems() {
         // 1. Login
-        loginPage.loginCompleto("standard_user", "secret_sauce");
+        loginPage.loginCompleto("testcompany", "Pruebastest");
 
         loginPage.obtenerTextoLogout();
 
@@ -70,7 +70,7 @@ public class CartAndCheckoutTest extends BaseTest {
         // RÚBRICA: Validación de este caso específico
         Assertions.assertTrue(driver.getCurrentUrl().contains("cart.html"),
                 "PASO FALLÓ: No se llegó a la pantalla del carrito.");
-        System.out.println("Prueba 1 - Agregar Ítems: ¡PASÓ CORRECTAMENTE!");
+        System.out.println("Caso 3 - Agregar Ítems: ¡PASÓ CORRECTAMENTE!");
     }
 
     @Test
@@ -103,7 +103,7 @@ public class CartAndCheckoutTest extends BaseTest {
         // 5. Cerrar el modal con el botón OK
         checkoutPage.hacerClicEnOkExito();
 
-        System.out.println("Prueba 2 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        System.out.println("Caso 4 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
     }
     @Test
     void testCheckoutCompraSinValidacion() {
@@ -132,7 +132,7 @@ public class CartAndCheckoutTest extends BaseTest {
         // 5. Cerrar el modal con el botón OK
         checkoutPage.hacerClicEnOkExito();
 
-        System.out.println("Prueba 2 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
     }
     @AfterEach
     void cleanup(){
