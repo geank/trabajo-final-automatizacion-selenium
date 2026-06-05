@@ -24,8 +24,8 @@ public class SelectedProductPage {
     public String obtenerTextoAlertAgregarProducto() {
         org.openqa.selenium.Alert alerta = wait.until(ExpectedConditions.alertIsPresent());
         String textAlert = alerta.getText();
-        ScreenshotUtil.takeScreenshot(driver, "testAgregarItems");
         alerta.accept();
+        ScreenshotUtil.takeScreenshot(driver, "testAgregarItems");
         return textAlert;
 
     }
