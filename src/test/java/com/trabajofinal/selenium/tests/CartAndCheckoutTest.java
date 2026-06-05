@@ -153,13 +153,6 @@ public class CartAndCheckoutTest extends BaseTest {
                 "06",
                 "2026"
         );
-       // String textoEsperadoExito = "Thank you for your purchase!";
-        //String textoActualExito = checkoutPage.obtenerMensajeConfirmacion();
-
-        //Assertions.assertEquals(textoEsperadoExito, textoActualExito,
-          //      "PASO FALLÓ: El mensaje de confirmación de compra no es el correcto o no apareció.");
-
-        //System.out.println("🎉 ¡Compra validada exitosamente en el sistema!");
         String mensajeAlerta = checkoutPage.obtenerTextoAlertNativo();
         Assertions.assertEquals("Please fill out Name and Creditcard.", mensajeAlerta, "El mensaje de la ventana emergente no es el correcto.");
         System.out.println("Validación exitosa: Se detectó el mensaje'" + mensajeAlerta + "'.");
