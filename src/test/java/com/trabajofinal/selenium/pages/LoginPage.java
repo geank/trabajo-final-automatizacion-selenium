@@ -35,7 +35,6 @@ public class LoginPage {
 
     public void hacerClicEnLogin() {
         wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
-        //driver.findElement(btnLogin).click();
     }
 
     //Metodos de Acciones Funcionales
