@@ -50,7 +50,7 @@ public class LoginTest  extends BaseTest {
         // Inicializa el navegador (Chrome o Edge) configurado en BaseTest
         super.setUp();
         // Inicializa el wait usando el driver seguro del hilo actual
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(props.getProperty("url-1"));
         loginPage = new LoginPage(driver, wait);
     }

@@ -1,5 +1,6 @@
 package com.trabajofinal.selenium.pages;
 
+import com.trabajofinal.selenium.utils.ScreenshotUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -67,6 +68,7 @@ public class CartPage {
     public void hacerClicEnPlaceOrder() {
         wait.until(ExpectedConditions.elementToBeClickable(btnPlaceOrder)).click();
     }
+
     public int calcularSumaPreciosDeTabla() {
         // 1. Esperamos a que la tabla tenga al menos un elemento o que el contenedor total esté visible
         wait.until(ExpectedConditions.visibilityOfElementLocated(lblTotal));

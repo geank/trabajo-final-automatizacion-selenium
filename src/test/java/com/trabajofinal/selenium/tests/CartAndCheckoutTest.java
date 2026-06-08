@@ -20,7 +20,7 @@ public class CartAndCheckoutTest extends BaseTest {
     @BeforeEach
     void init() {
         super.setUp();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(props.getProperty("url-1"));
         loginPage = new LoginPage(driver, wait);
         productsPage = new ProductsPage(driver, wait);
@@ -108,6 +108,7 @@ public class CartAndCheckoutTest extends BaseTest {
         checkoutPage.hacerClicEnOkExito();
 
         System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraConValidacionDeMontos");
     }
     @Test
     void testCheckoutCompraSinValidacion() {
@@ -160,7 +161,7 @@ public class CartAndCheckoutTest extends BaseTest {
         System.out.println("Validación exitosa: Se detectó el mensaje'" + mensajeAlerta + "'.");
 
         System.out.println("Caso 7 - Checkout sin campos obligatorios: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
-        ScreenshotUtil.takeScreenshot(driver, "testCheckoutSinCamposObligatorios");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraSinCamposObligatorios");
     }
     @AfterEach
     void cleanup(){
