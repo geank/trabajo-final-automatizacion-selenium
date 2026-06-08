@@ -20,7 +20,7 @@ public class CartAndCheckoutTest extends BaseTest {
     @BeforeEach
     void init() {
         super.setUp();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driver.get(props.getProperty("url-1"));
         loginPage = new LoginPage(driver, wait);
         productsPage = new ProductsPage(driver, wait);
@@ -85,7 +85,7 @@ public class CartAndCheckoutTest extends BaseTest {
         int precioTotal = cartPage.obtenerPrecioTotalCarrito();
 
         Assertions.assertEquals(precioTotal, sumaPreciosTabla,"¡La validación falló! El monto del carrito no coincide con los productos agregados.");
-
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraConValidacionDeMontos_01");
         cartPage.hacerClicEnPlaceOrder();
 
         checkoutPage.completarFormularioOrden(
@@ -103,12 +103,13 @@ public class CartAndCheckoutTest extends BaseTest {
                 "PASO FALLÓ: El mensaje de confirmación de compra no es el correcto o no apareció.");
 
         System.out.println("🎉 ¡Compra validada exitosamente en el sistema!");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraConValidacionDeMontos_02");
 
         // 5. Cerrar el modal con el botón OK
         checkoutPage.hacerClicEnOkExito();
 
         System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
-        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraConValidacionDeMontos");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraConValidacionDeMontos_03");
     }
 
     @Test

@@ -26,7 +26,7 @@ public class ProductsPage {
     public void seleccionarCategoriaMonitors(){
         wait.until(ExpectedConditions.elementToBeClickable(btnCategoriaMonitor)).click();
         try {
-            Thread.sleep(2500); // Pausa de seguridad de 1.5 segundos para la carga asíncrona de JavaScript
+            Thread.sleep(3500); // Pausa de seguridad de 03 segundos para la carga asíncrona de JavaScript
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

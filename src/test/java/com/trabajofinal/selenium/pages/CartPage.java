@@ -36,7 +36,7 @@ public class CartPage {
 
             // Esperamos un momento corto a que la fila desaparezca del DOM (asíncrono)
             try {
-                Thread.sleep(1500);
+                Thread.sleep(3500);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -61,6 +61,7 @@ public class CartPage {
         String soloNumeros = textoPrecioTotal.replaceAll("[^0-9]", "");
 
         if (soloNumeros.isEmpty()) return 0;
+
         // 3. Convertimos el String  a un entero
         return Integer.parseInt(soloNumeros);
 
