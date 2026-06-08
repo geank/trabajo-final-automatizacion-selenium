@@ -10,7 +10,6 @@
             <option value="$PROJECT_DIR$" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="true" />
         <option name="myGradleHome" value="C:\Program Files\gradle-9.4.1-bin" />
       </GradleProjectSettings>
     </option>

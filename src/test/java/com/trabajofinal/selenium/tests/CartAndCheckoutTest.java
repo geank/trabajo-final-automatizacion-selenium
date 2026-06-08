@@ -139,12 +139,8 @@ public class CartAndCheckoutTest extends BaseTest {
     }
     @Test
     void testCheckoutCompraSinCamposObligatorios() {
-
         prepararCarritoConItems();
-
-
         cartPage.hacerClicEnPlaceOrder();
-
         checkoutPage.completarFormularioOrden(
                 "",
                 "Perú",
