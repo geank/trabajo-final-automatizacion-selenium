@@ -15,6 +15,7 @@ public class CartPage {
     private final By lblTotal = By.id("totalp");
     private final By btnMenuCart = By.xpath("//a[contains(text(),'Cart')]");
     private final By btnPlaceOrder = By.xpath("//button[text()='Place Order']");
+    private final By celdasPrecios = By.xpath("//tbody[@id='tbodyid']/tr/td[3]");
     public CartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -58,18 +59,36 @@ public class CartPage {
         String textoPrecioTotal = driver.findElement(lblTotal).getText();
         String soloNumeros = textoPrecioTotal.replaceAll("[^0-9]", "");
 
-        if (soloNumeros.isEmpty()) {
-            System.out.println("⚠️ El string de números quedó vacío, devolviendo 0 de respaldo.");
-            return 0;
-        }
-        // 3. Convertimos el String limpio a un entero
-        int precio = Integer.parseInt(soloNumeros);
-
-        System.out.println("💰 Precio Total capturado y convertido: $" + precio);
-        return precio;
+        if (soloNumeros.isEmpty()) return 0;
+        // 3. Convertimos el String  a un entero
+        return Integer.parseInt(soloNumeros);
 
     }
     public void hacerClicEnPlaceOrder() {
         wait.until(ExpectedConditions.elementToBeClickable(btnPlaceOrder)).click();
     }
+    public int calcularSumaPreciosDeTabla() {
+        // 1. Esperamos a que la tabla tenga al menos un elemento o que el contenedor total esté visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lblTotal));
+
+        // 2. Capturamos todas las celdas de precios que existan en este instante
+        List<WebElement> listaPrecios = driver.findElements(celdasPrecios);
+        int sumaCalculada = 0;
+
+
+        // 3. Iteramos por cada celda, limpiamos el texto y lo sumamos
+        for (WebElement celda : listaPrecios) {
+            String textoPrecio = celda.getText().trim();
+            if (!textoPrecio.isEmpty()) {
+                // Filtramos por seguridad para dejar solo dígitos
+                int precioItem = Integer.parseInt(textoPrecio.replaceAll("[^0-9]", ""));
+                sumaCalculada += precioItem;
+                System.out.println("   -> Artículo en carrito: $" + precioItem);
+            }
+        }
+
+        System.out.println("Suma total: $" + sumaCalculada);
+        return sumaCalculada;
+    }
+
 }

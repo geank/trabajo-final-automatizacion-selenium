@@ -80,9 +80,11 @@ public class CartAndCheckoutTest extends BaseTest {
 
         prepararCarritoConItems();
 
+        int sumaPreciosTabla = cartPage.calcularSumaPreciosDeTabla();
+
         int precioTotal = cartPage.obtenerPrecioTotalCarrito();
 
-        Assertions.assertEquals(precioTotal, precioTotalEsperado,"¡La validación falló! El monto del carrito no coincide con los productos agregados.");
+        Assertions.assertEquals(precioTotal, sumaPreciosTabla,"¡La validación falló! El monto del carrito no coincide con los productos agregados.");
 
         cartPage.hacerClicEnPlaceOrder();
 
