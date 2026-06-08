@@ -108,6 +108,7 @@ public class CartAndCheckoutTest extends BaseTest {
         checkoutPage.hacerClicEnOkExito();
 
         System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraConValidacionDeMontos");
     }
 
     @Test
@@ -158,7 +159,7 @@ public class CartAndCheckoutTest extends BaseTest {
         System.out.println("Validación exitosa: Se detectó el mensaje'" + mensajeAlerta + "'.");
 
         System.out.println("Caso 7 - Checkout sin campos obligatorios: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
-        ScreenshotUtil.takeScreenshot(driver, "testCheckoutSinCamposObligatorios");
+        ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraSinCamposObligatorios");
     }
 
     @AfterEach
