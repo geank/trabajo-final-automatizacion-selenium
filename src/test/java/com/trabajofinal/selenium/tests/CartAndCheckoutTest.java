@@ -107,6 +107,7 @@ public class CartAndCheckoutTest extends BaseTest {
 
         System.out.println("Caso 5 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
     }
+
     @Test
     void testCheckoutCompraSinValidacion() {
 
@@ -137,6 +138,7 @@ public class CartAndCheckoutTest extends BaseTest {
         System.out.println("Caso 6 - Checkout Completo: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
         ScreenshotUtil.takeScreenshot(driver, "testCheckoutCompraSinValidacion");
     }
+
     @Test
     void testCheckoutCompraSinCamposObligatorios() {
         prepararCarritoConItems();
@@ -156,6 +158,7 @@ public class CartAndCheckoutTest extends BaseTest {
         System.out.println("Caso 7 - Checkout sin campos obligatorios: ¡PASÓ CORRECTAMENTE CON ÉXITO ABSOLUTO!");
         ScreenshotUtil.takeScreenshot(driver, "testCheckoutSinCamposObligatorios");
     }
+
     @AfterEach
     void cleanup(){
         super.tearDown();

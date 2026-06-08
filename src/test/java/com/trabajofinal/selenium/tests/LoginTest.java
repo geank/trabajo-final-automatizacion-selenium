@@ -67,6 +67,7 @@ public class LoginTest  extends BaseTest {
         System.out.println("✅ Caso 1 - Login Exitoso: ¡PASÓ CORRECTAMENTE!");
 
     }
+
     @Test
     void testLoginFallido() {
         loginPage.loginCompleto("usuario_invalido", "clave_falsa");
@@ -83,6 +84,7 @@ public class LoginTest  extends BaseTest {
     // =========================================================================
     @ParameterizedTest(name = "Ejecución {index} => Usuario: {0}, Escenario: {2}")
     @MethodSource("proveerDatosDeLogin") // Vincula este test con la fuente de datos anterior
+
     void testLoginMultiplesEscenarios(String usuario, String contrasena, String resultadoEsperado, String textoEsperado) {
 
         // El script interactúa usando las variables dinámicas de la fila actual
