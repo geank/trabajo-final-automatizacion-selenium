@@ -44,7 +44,7 @@ url-1=[https://www.demoblaze.com](https://www.demoblaze.com)
 # Modo de ejecución de la interfaz gráfica (true = Segundo plano sin ventana / false = Modo visible)
 headless=false
 
----
+```
 
 ## 🧪 Cobertura y Detalle de la Suite de Pruebas
 
@@ -85,8 +85,6 @@ Abre la terminal de comandos (CMD, PowerShell o Git Bash) en la raíz del proyec
 | **Checkout con validación de montos** (Caso 5) | `gradle clean test --tests "com.trabajofinal.selenium.tests.CartAndCheckoutTest.testCheckoutCompraConValidacionDeMontos"` |
 | **Checkout sin validación de montos** (Caso 6) | `gradle clean test --tests "com.trabajofinal.selenium.tests.CartAndCheckoutTest.testCheckoutCompraSinValidacion"` |
 | **Checkout con campos obligatorios vacíos** (Caso 7 – Ejemplo que mostraste) | `gradle clean test --tests "com.trabajofinal.selenium.tests.CartAndCheckoutTest.testCheckoutCompraSinCamposObligatorios"` |
-
-> 💡 **Nota:** El comando que dejaste truncado (`...testCheckoutCompraS`) se completa como `testCheckoutCompraSinCamposObligatorios` que es exactamente el método que valida el mensaje *"Please fill out Name and Creditcard."*
 
 ### 2. Ejecutar todos los tests de una clase
 
