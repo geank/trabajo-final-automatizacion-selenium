@@ -23,6 +23,14 @@ Este proyecto comprende el diseño e implementación de un marco de trabajo de a
 
 ---
 
+## 👥 Integrantes del equipo
+
+- **Gaitan Aldave, Luis Orlando**
+- **Morales Alarcon, Ronald**
+- **Morales Castro, Gean Carlos**
+- **Pantoja Cruz, Mayra Deisy**
+- **Roque Bolivar, Katherin**
+---
 ## ⚙️ Configuración del Entorno y Cambio de Navegador
 
 El marco de trabajo permite alternar de forma transparente el navegador web de ejecución y el modo de renderizado (visual o en segundo plano / Headless) sin modificar el código fuente de Java.
