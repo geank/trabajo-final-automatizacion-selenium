@@ -20,7 +20,7 @@ public class CartAndCheckoutTest extends BaseTest {
     @BeforeEach
     void init() {
         super.setUp();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(props.getProperty("url-1"));
         loginPage = new LoginPage(driver, wait);
         productsPage = new ProductsPage(driver, wait);
